@@ -40,7 +40,7 @@ class $modify(MyPlayLayer, PlayLayer) {
 		}
 
 		if (auto baz = this->m_uiLayer->getChildByType<StartposSwitcherUI>(0); baz) {
-			baz->setVisible(false);
+			baz->setPositionY(9999);
 		}
 
 		if (auto fooBar = this->m_uiLayer->getChildByType<mega::hacks::startpos_switcher::Interface>(0); fooBar) {
@@ -158,6 +158,15 @@ class $modify(MyPlayLayer, PlayLayer) {
 
 	void setupHasCompleted() {
 		PlayLayer::setupHasCompleted();
+
+		// qolmod is a bit silly: https://github.com/TheSillyDoggo/GeodeMenu/tree/main/src/Hacks/Level/StartposSwitcher.cpp#L113-L145 --raydeeux
+		if (jumpscare && Mod::get()->getSettingValue<bool>("drop")) {
+			for (GameObject* object : CCArrayExt<GameObject*>(m_objects)) {
+				if (!object || object->m_objectID != 31) continue;
+				PlayLayer::setStartPosObject(static_cast<StartPosObject*>(object));
+				break;
+			}
+		}
 
 		if (Mod::get()->getSettingValue<bool>("hide") && jumpscare) {
 			/*
