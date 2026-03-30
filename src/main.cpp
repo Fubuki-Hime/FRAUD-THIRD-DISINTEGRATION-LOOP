@@ -89,11 +89,11 @@ class $modify(MyPlayLayer, PlayLayer) {
 				GameLevelManager::get()->downloadLevel(68668045, false, 0);
 				jumpscare = false;
 			} else {
-				if (orgLevelString.empty()) 
+				if (!orgLevelString.empty()) 
 					level->m_levelString = orgLevelString;
 				
 				if (Mod::get()->getSettingValue<bool>("drop")) {
-					if (!orgLevelString.empty()) 
+					if (orgLevelString.empty()) 
 						orgLevelString = level->m_levelString;
 					
 					std::string levelString = ZipUtils::decompressString(level->m_levelString, true, 0);
