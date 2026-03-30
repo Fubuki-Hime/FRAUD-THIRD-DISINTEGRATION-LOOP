@@ -78,7 +78,7 @@ class $modify(MyPlayLayer, PlayLayer) {
 			level = GameLevelManager::get()->getSavedLevel(68668045);
 			if (level->m_levelNotDownloaded) {
 				level = orgLevel;
-				GameLevelManager::get()->downloadLevel(68668045, false);
+				GameLevelManager::get()->downloadLevel(68668045, false, 0);
 				jumpscare = false;
 			} else {
 				if (orgLevelString.empty()) 
@@ -268,7 +268,7 @@ $on_mod(Loaded) {
 	auto GLM = GameLevelManager::get();
 	auto MDM = MusicDownloadManager::sharedState();
 
-	GLM->downloadLevel(68668045, false);
+	GLM->downloadLevel(68668045, false, 0);
 	#ifdef GEODE_IS_ANDROID
 		std::filesystem::path p = MDM->pathForSong(895761).c_str();
 		if (!std::filesystem::exists(p.parent_path() / "895761.mp3"))
