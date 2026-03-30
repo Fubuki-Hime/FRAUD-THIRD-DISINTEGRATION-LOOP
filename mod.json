@@ -32,8 +32,8 @@
 			"default": true
 		},
 		"hide": {
-            "name": "Hide UI in jumpscare",
-			"description": "Try its best to hide the UIs that can reveal the surprise",
+            "name": "Hide UI for Jumpscare",
+			"description": "Try its best to hide the UI elements that can reveal the surprise",
 			"type": "bool",
 			"default": true
 		}
