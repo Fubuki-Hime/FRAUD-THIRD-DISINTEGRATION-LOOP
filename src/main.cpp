@@ -4,7 +4,6 @@
 #include <Geode/modify/LevelInfoLayer.hpp>
 #include <Geode/modify/LevelSelectLayer.hpp>
 #include <Geode/modify/PauseLayer.hpp>
-#include <Geode/modify/LevelTools.hpp>
 
 #include <random>
 
@@ -23,13 +22,6 @@ class StartposSwitcherUI final : public CCNode {}; // dummy class declaration fo
 namespace mega::hacks::startpos_switcher {
 	class Interface final : public CCNode {}; // dummy class declaration for getting child by type --raydeeux
 }
-
-class $modify(MyLevelTools, LevelTools) {
-	static bool verifyLevelIntegrity(gd::string str, int id) {
-		if (jumpscare) return true;
-		return LevelTools::verifyLevelIntegrity(str, id);
-	}
-};
 
 class $modify(MyPlayLayer, PlayLayer) {
 	static void onModify(auto& self) {
@@ -88,7 +80,7 @@ class $modify(MyPlayLayer, PlayLayer) {
 				level = orgLevel;
 				GameLevelManager::get()->downloadLevel(68668045, false, 0);
 				jumpscare = false;
-			} else {
+			} else if (level) {
 				if (!orgLevelString.empty()) 
 					level->m_levelString = orgLevelString;
 				
@@ -115,6 +107,8 @@ class $modify(MyPlayLayer, PlayLayer) {
 					level = orgLevel;
 					jumpscare = false;
 				}
+			} else {
+				jumpscare = false;
 			}
 		}
 		
