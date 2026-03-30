@@ -160,6 +160,7 @@ class $modify(MyPlayLayer, PlayLayer) {
 		PlayLayer::setupHasCompleted();
 
 		// qolmod is a bit silly: https://github.com/TheSillyDoggo/GeodeMenu/tree/main/src/Hacks/Level/StartposSwitcher.cpp#L113-L145 --raydeeux
+		// normally this would be a bit weak to find the furthest placed startpos object, but it's a classic extreme demon from 2.1 and the only startpos is the one that was manually added via level string, so it's fine --raydeeux
 		if (jumpscare && Mod::get()->getSettingValue<bool>("drop")) {
 			for (GameObject* object : CCArrayExt<GameObject*>(m_objects)) {
 				if (!object || object->m_objectID != 31) continue;
