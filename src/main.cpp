@@ -12,7 +12,6 @@ using namespace geode::prelude;
 GJGameLevel* orgLevel = nullptr;
 std::string orgLevelString; // for the original Congregation level's string without the startpos
 bool jumpscare = false;
-bool startPosFound = false;
 int type = 0; // 1: main level, 2: editor level, 3: online level
 int mainLevels[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,1001,1002,1003,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,3001,4001,4002,4003,5001,5002,5003,5004};
 std::string startPos = "1,31,2,24525,3,1605,155,3,36,1,kA2,0,kA3,0,kA8,0,kA4,1,kA9,1,kA10,0,kA22,0,kA23,0,kA24,0,kA27,1,kA40,1,kA41,1,kA42,1,kA28,0,kA29,0,kA31,1,kA32,1,kA36,0,kA43,0,kA44,0,kA45,1,kA33,1,kA34,1,kA35,0,kA37,1,kA38,1,kA39,1,kA19,0,kA26,0,kA20,0,kA21,0,kA11,0;";
@@ -157,13 +156,6 @@ class $modify(MyPlayLayer, PlayLayer) {
 		return true;
     }
 
-	void startGame() {
-		PlayLayer::startGame();
-		if (jumpscare && Mod::get()->getSettingValue<bool>("drop") && startPosFound) {
-			PlayLayer::resetLevel();
-		}
-	}
-
 	void setupHasCompleted() {
 		PlayLayer::setupHasCompleted();
 
@@ -171,8 +163,8 @@ class $modify(MyPlayLayer, PlayLayer) {
 		if (jumpscare && Mod::get()->getSettingValue<bool>("drop")) {
 			for (GameObject* object : CCArrayExt<GameObject*>(m_objects)) {
 				if (!object || object->m_objectID != 31) continue;
-				startPosFound = true;
 				PlayLayer::setStartPosObject(static_cast<StartPosObject*>(object));
+				PlayLayer::resetLevel();
 				break;
 			}
 		}
@@ -207,12 +199,6 @@ class $modify(MyPlayLayer, PlayLayer) {
 			*/
 			MyPlayLayer::hideStartPositionSwitchersAndSuch();
 		}
-	}
-
-	void onQuit() {
-		startPosFound = false;
-		jumpscare = false;
-		PlayLayer::onQuit();
 	}
 };
 
