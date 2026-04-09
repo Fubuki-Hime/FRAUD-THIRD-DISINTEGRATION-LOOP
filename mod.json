@@ -6,15 +6,16 @@
 		"ios": "2.2081",
 		"android": "2.2081"
 	},
-	"version": "v1.0.5",
-	"id": "weebify.congregation_jumpscare",
-	"name": "Congregation Jumpscare",
-	"developer": "Weebify",
-	"description": "Congregation Jumpscare",
+	"version": "v1.0.0",
+	"id": "fubukihime.disintergration_loop",
+	"name": "FRAUD///THIRD DISINTEGRATION LOOP",
+	"developer": "Fubuki-Hime",
+	"description": "Love is in the air? Wrong! 8-3 Disintegratioon Loop!",
 	"tags": ["gameplay", "joke"],
 	"resources": {
 		"files": [
 			"res/895761.mp3"
+			"res/764913.mp3"
 		]
 	},
 	"settings": {
@@ -27,15 +28,17 @@
 		},
 		"drop": {
 			"name": "Jumpscare at Drop",
-			"description": "Whether you will be thrown at the beginning or the drop.\n\n<co>This setting will NOT work with QOLMod's Start Position Switcher.</c>",
+			"description": "LOVE IS IN THE AIR?",
 			"type": "bool",
-			"default": true
+			"default": false,
+			"enable-if": " "
 		},
 		"hide": {
             "name": "Hide UI for Jumpscare",
-			"description": "Try its best to hide the UI elements that can reveal the surprise",
+			"description": "WRONG! 8-3 DISINTEGRATION LOOP!",
 			"type": "bool",
-			"default": true
+			"default": false,
+			"enable-if": " "
 		}
 	}
 }
