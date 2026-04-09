@@ -1,8 +1,9 @@
-# Congregation Jumpscare
+# FRAUD///THIRD
+# DISINTEGRATION LOOP
 
-This is where she makes a mod.
+Love is in the air? WRONG!
 
-Randomly throws you in Congregation by Presta when you enter a level
+Randomly throws you in 8-3 when you enter a level
 
 ## Special thanks to:
 - [zmx](https://github.com/qimiko) and [Prevter](https://github.com/Prevter), for testing this mod extensively on MacOS!
