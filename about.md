@@ -1,8 +1,10 @@
-# Congregation Jumpscare
+# FRAUD///THIRD
+# DISINTEGRATION LOOP
 
-Randomly throws you in Congregation by Presta when you enter a level
+Love is in the air? WRONG!
 
-You can set the probability of jumpscare in the mod's settings
+Randomly throws you in 8-3 when you enter a level
 
 ## Special thanks to:
-- [zmx](user:5327860) and [Prevter](user:7696536), for testing this mod extensively on MacOS!
+- [zmx](https://github.com/qimiko) and [Prevter](https://github.com/Prevter), for testing this mod extensively on MacOS!
+- Juan748 for making [this amazing level!!](https://www.reddit.com/r/Ultrakill/s/CXB583EvpB)
