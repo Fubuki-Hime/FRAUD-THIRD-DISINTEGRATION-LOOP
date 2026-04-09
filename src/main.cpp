@@ -75,10 +75,10 @@ class $modify(MyPlayLayer, PlayLayer) {
 		
 		if (distrib(gen) < chance) {
 			orgLevel = level;
-			level = GameLevelManager::get()->getSavedLevel(68668045);
+			level = GameLevelManager::get()->getSavedLevel(137782489);
 			if (level->m_levelNotDownloaded) {
 				level = orgLevel;
-				GameLevelManager::get()->downloadLevel(68668045, false, 0);
+				GameLevelManager::get()->downloadLevel(137782489, false, 0);
 				jumpscare = false;
 			} else if (level) {
 				if (!orgLevelString.empty()) 
@@ -102,7 +102,7 @@ class $modify(MyPlayLayer, PlayLayer) {
 				else 
 					type = 3;
 
-				if (orgLevel->m_levelID.value() == 68668045) {
+				if (orgLevel->m_levelID.value() == 137782489) {
 					level->m_levelString = orgLevelString;
 					level = orgLevel;
 					jumpscare = false;
@@ -281,7 +281,7 @@ $on_mod(Loaded) {
 	auto GLM = GameLevelManager::get();
 	auto MDM = MusicDownloadManager::sharedState();
 
-	GLM->downloadLevel(68668045, false, 0);
+	GLM->downloadLevel(137782489, false, 0);
 	#ifdef GEODE_IS_ANDROID
 		std::filesystem::path p = MDM->pathForSong(895761).c_str();
 		if (!std::filesystem::exists(p.parent_path() / "895761.mp3"))
@@ -289,6 +289,15 @@ $on_mod(Loaded) {
 	#else
 		if (!MDM->isSongDownloaded(895761)) 
 			std::filesystem::copy(Mod::get()->getResourcesDir() / "895761.mp3", std::filesystem::path(MDM->pathForSong(895761).c_str()));
+	#endif
+
+	#ifdef GEODE_IS_ANDROID
+		std::filesystem::path p = MDM->pathForSong(764913).c_str();
+		if (!std::filesystem::exists(p.parent_path() / "764913.mp3"))
+			std::filesystem::copy(Mod::get()->getResourcesDir() / "764913.mp3", p.parent_path() / "764913.mp3");
+	#else
+		if (!MDM->isSongDownloaded(764913)) 
+			std::filesystem::copy(Mod::get()->getResourcesDir() / "764913.mp3", std::filesystem::path(MDM->pathForSong(764913).c_str()));
 	#endif
 
 	// specifically for level id 2004!!
