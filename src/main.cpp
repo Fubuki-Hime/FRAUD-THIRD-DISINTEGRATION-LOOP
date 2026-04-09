@@ -292,9 +292,9 @@ $on_mod(Loaded) {
 	#endif
 
 	#ifdef GEODE_IS_ANDROID
-		std::filesystem::path p = MDM->pathForSong(764913).c_str();
-		if (!std::filesystem::exists(p.parent_path() / "764913.mp3"))
-			std::filesystem::copy(Mod::get()->getResourcesDir() / "764913.mp3", p.parent_path() / "764913.mp3");
+		std::filesystem::path p2 = MDM->pathForSong(764913).c_str();
+		if (!std::filesystem::exists(p2.parent_path() / "764913.mp3"))
+			std::filesystem::copy(Mod::get()->getResourcesDir() / "764913.mp3", p2.parent_path() / "764913.mp3");
 	#else
 		if (!MDM->isSongDownloaded(764913)) 
 			std::filesystem::copy(Mod::get()->getResourcesDir() / "764913.mp3", std::filesystem::path(MDM->pathForSong(764913).c_str()));
